@@ -35,7 +35,7 @@ Inštalácia balíkov webserveru nginx, textového editora vim.
 sudo apt install nginx vim
 ```
 Po navštívení IP adresy by webový prehliadač mal zobrazovať
-![nginx](https://github.com/matej/webte2-installation/blob/main/img/nginx.png?raw=true)
+![nginx](https://raw.githubusercontent.com/matej172/webte2-installation/main/img/nginx.png)
 
 Pridanie usera do skupiny www-data.
 ```sh
