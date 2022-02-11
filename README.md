@@ -13,7 +13,7 @@ Nastavenie LEMP webového servera pre predmet webte2 FEI STU
 
 Cez program putty (windows) alebo priamo cez terminál (OSx/Linux) sa pripojiť k svojmu pridelenému serveru.
 ```sh
-ssh username@147.175.XX.XX
+ssh username@147.175.YY.XX
 ```
 Po prompte zadať heslo.
 
@@ -115,9 +115,9 @@ Zend Engine v4.1.2, Copyright (c) Zend Technologies
 Reťazec **XX** nahradiť prideleným číslom podľa URL
 
 ```sh
-sudo vim /etc/sites-available/siteXX.webte.fei.stuba.sk
+sudo vim /etc/nginx/sites-available/siteXX.webte.fei.stuba.sk
 ```
-Do súboru vložiť obsah a zameniť režazec **XX** za priradené číslo podľa URL:
+Do súboru vložiť obsah a zameniť režazec **XX** za posledný číselný segment priradenej IP adresy:
 
 ```sh
 server {
@@ -127,10 +127,15 @@ server {
        server_name siteXX.webte.fei.stuba.sk;
 
        root /var/www/siteXX.webte.fei.stuba.sk;
-       index index.html;
-
+       index index.html index.php;
+       
        location / {
                try_files $uri $uri/ =404;
+       }
+       
+       location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
        }
 }
 ```
@@ -177,7 +182,7 @@ Skopírovať ich do:
 - /etc/ssl/certs/webte.fei.stuba.sk-chain-cert.pem;
 - /etc/ssl/private/webte.fei.stuba.sk.key;
 
-Zmeniť konfiguráciu Nginx v súbore ```/etc/sites-available/siteXX.webte.fei.stuba.sk'''
+Zmeniť konfiguráciu Nginx v súbore ```/etc/sites-available/siteXX.webte.fei.stuba.sk```
 
 ```sh
 server {
@@ -186,17 +191,15 @@ server {
 
        server_name siteXX.webte.fei.stuba.sk;
 
-        rewrite ^ https://$server_name$request_uri? permanent;
+       rewrite ^ https://$server_name$request_uri? permanent;
 }
 
 server {
-
         listen 443 ssl;
         listen [::]:443 ssl;
 
         server_name siteXX.webte.fei.stuba.sk;
 
-        ## Access and error logs.
         access_log /var/log/nginx/access.log;
         error_log  /var/log/nginx/error.log info;
 
