@@ -222,6 +222,9 @@ Reštartovať Nginx príkazom
 sudo service nginx restart
 ```
 
+Po navštívení pridelenej domény vo webovom prehliadači sa stránka načíta pomcou https protokolu
+![nginx](https://raw.githubusercontent.com/matej172/webte2-installation/main/img/ssl.png)
+
 ## PhpMyAdmin
 
 Inštalácia GUI utility pre správu databázy cez prehliadač.
