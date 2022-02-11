@@ -304,9 +304,8 @@ server {
 
 ```
 
-Po reštarte nginx serveru príkazom ```sudo service nginx restart``` otvoriť stránku [https://siteXX.webte.fei.stuba.sk/phpmyadmin](https://siteXX.webte.fei.stuba.sk/phpmyadmin)
+Po reštarte nginx serveru príkazom ```sudo service nginx restart``` otvoriť stránku [https://siteXX.webte.fei.stuba.sk/phpmyadmin](https://siteXX.webte.fei.stuba.sk/phpmyadmin). Úvodná obrazovka by mala vyzerať takto:
 
-Úvodná obrazovka by mala vyzerať takto:
 ![phpmyadmin_5](https://raw.githubusercontent.com/matej172/webte2-installation/main/img/phpmyadmin_5.png)
 
 Po zadaní prihlasovacích údajov zo sekcie [MySQL](#mysql) by sa mala zobraziť táto aplikácia
