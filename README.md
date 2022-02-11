@@ -115,7 +115,7 @@ Zend Engine v4.1.2, Copyright (c) Zend Technologies
 Reťazec **XX** nahradiť prideleným číslom podľa URL
 
 ```sh
-sudo vim /etc/nginx/sites-available/siteXX.webte.fei.stuba.sk
+sudo vim /etc/nginx/sites-available/site(&#x1F534;)XX(&#x1F534;).webte.fei.stuba.sk
 ```
 Do súboru vložiť obsah a zameniť režazec **XX** za posledný číselný segment priradenej IP adresy:
 
@@ -261,6 +261,45 @@ location /phpmyadmin {
 ```
 
 Do konfiguračného súboru ```/etc/nginx/sites-available/siteXX.webte.fei.stuba.sk ``` pridať riadok
+
+Finálny konfiguračný súbor bude vyzerať
+
+```sh
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name site16.webte.fei.stuba.sk;
+
+    rewrite ^ https://$server_name$request_uri? permanent;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    server_name site16.webte.fei.stuba.sk;
+
+    access_log /var/log/nginx/access.log;
+    error_log  /var/log/nginx/error.log info;
+
+    root /var/www/site16.webte.fei.stuba.sk;
+    index index.php index.html;
+
+    ssl on;
+    ssl_certificate /etc/ssl/certs/webte.fei.stuba.sk-chain-cert.pem;
+    ssl_certificate_key /etc/ssl/private/webte.fei.stuba.sk.key;
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+    }
+
+    include snippets/phpmyadmin.conf;
+}
+
+```
+
 
 ```sh
 include snippets/phpmyadmin.conf;
