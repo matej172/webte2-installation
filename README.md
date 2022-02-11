@@ -233,6 +233,12 @@ Inštalácia GUI utility pre správu databázy cez prehliadač.
 sudo apt install phpmyadmin
 ```
 
+Po spustení inštalácie sa zobrazí séria okien s otázkami, nikde nič nevypĺňať, len stlačiť enter
+![phpmyadmin_1](https://raw.githubusercontent.com/matej172/webte2-installation/main/img/phpmyadmin_1.png)
+![phpmyadmin_2](https://raw.githubusercontent.com/matej172/webte2-installation/main/img/phpmyadmin_2.png)
+![phpmyadmin_3](https://raw.githubusercontent.com/matej172/webte2-installation/main/img/phpmyadmin_3.png)
+
+
 Vytvoriť súbor ```/etc/nginx/snippets/phpmyadmin.conf``` a vložiť obsah:
 
 ```sh
@@ -263,6 +269,8 @@ include snippets/phpmyadmin.conf;
 ### Inštalácia verzie 5.1.2
 
 V prípade, že aplikácia phpMyAdmin po prihlásení vracia chybu 500, je nutné urobiť aktualizáciu na novšiu verziu.
+
+![phpmyadmin_4](https://raw.githubusercontent.com/matej172/webte2-installation/main/img/phpmyadmin_4.png)
 
 ```sh
 cd ~
