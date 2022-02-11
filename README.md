@@ -1,6 +1,6 @@
 # Webte2 server setup
 
-Nastavenie LEMP webového servera pre predmet webte2 FEI STU
+Nastavenie LEMP webového servera pre predmet webte2 FEI STU. Pred samotnou inštaláciou je nutné byť pripojený k univerzitnej sieti buď fyzicky alebo cez VPN. Návod pre nastavenie VPN je dostupný na stránke [https://www.stuba.sk/sk/pracoviska/centrum-vypoctovej-techniky/cinnosti-a-sluzby/vzdialeny-vpn-pristup-do-siete-stu.html?page_id=3750](https://www.stuba.sk/sk/pracoviska/centrum-vypoctovej-techniky/cinnosti-a-sluzby/vzdialeny-vpn-pristup-do-siete-stu.html?page_id=3750).
 
 ## Softvér a verzie
 - Ubuntu 20.04
@@ -309,6 +309,7 @@ Po reštarte nginx serveru príkazom ```sudo service nginx restart``` otvoriť s
 ![phpmyadmin_5](https://raw.githubusercontent.com/matej172/webte2-installation/main/img/phpmyadmin_5.png)
 
 Po zadaní prihlasovacích údajov zo sekcie [MySQL](#mysql) by sa mala zobraziť táto aplikácia
+
 ![phpmyadmin_6](https://raw.githubusercontent.com/matej172/webte2-installation/main/img/phpmyadmin_6.png)
 
 ### Inštalácia verzie 5.1.2
