@@ -115,7 +115,7 @@ Zend Engine v4.1.2, Copyright (c) Zend Technologies
 Reťazec **XX** nahradiť prideleným číslom podľa URL
 
 ```sh
-sudo vim /etc/nginx/sites-available/site(&#x1F534;)XX(&#x1F534;).webte.fei.stuba.sk
+sudo vim /etc/nginx/sites-available/siteXX.webte.fei.stuba.sk
 ```
 Do súboru vložiť obsah a zameniť režazec **XX** za posledný číselný segment priradenej IP adresy:
 
@@ -262,6 +262,10 @@ location /phpmyadmin {
 
 Do konfiguračného súboru ```/etc/nginx/sites-available/siteXX.webte.fei.stuba.sk ``` pridať riadok
 
+```sh
+include snippets/phpmyadmin.conf;
+```
+
 Finálny konfiguračný súbor bude vyzerať
 
 ```sh
@@ -298,11 +302,6 @@ server {
     include snippets/phpmyadmin.conf;
 }
 
-```
-
-
-```sh
-include snippets/phpmyadmin.conf;
 ```
 
 ### Inštalácia verzie 5.1.2
