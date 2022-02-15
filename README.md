@@ -1,6 +1,10 @@
 # Webte2 server setup
 
-Nastavenie LEMP webového servera pre predmet webte2 FEI STU. Pred samotnou inštaláciou je nutné byť pripojený k univerzitnej sieti buď fyzicky alebo cez VPN. Návod pre nastavenie VPN je dostupný na stránke [https://www.stuba.sk/sk/pracoviska/centrum-vypoctovej-techniky/cinnosti-a-sluzby/vzdialeny-vpn-pristup-do-siete-stu.html?page_id=3750](https://www.stuba.sk/sk/pracoviska/centrum-vypoctovej-techniky/cinnosti-a-sluzby/vzdialeny-vpn-pristup-do-siete-stu.html?page_id=3750).
+Nastavenie LEMP webového servera pre predmet webte2 FEI STU. Server je dostupný na verejnej IP adrese v tvare 147.175.98.XX, ktorá je dostupná iba cez VPN. Server má priradené aj doménové meno v tvare siteXX.webte.fei.stuba.sk . Znaky XX v doménovom tvare adresy sú nahradené posledným číslom z IP adresy (môžu to byť 2 alebo 3 číslice).
+
+Pred samotnou inštaláciou je nutné byť pripojený k univerzitnej sieti buď fyzicky alebo cez VPN. Návod pre nastavenie VPN je dostupný na stránke [https://www.stuba.sk/sk/pracoviska/centrum-vypoctovej-techniky/cinnosti-a-sluzby/vzdialeny-vpn-pristup-do-siete-stu.html?page_id=3750](https://www.stuba.sk/sk/pracoviska/centrum-vypoctovej-techniky/cinnosti-a-sluzby/vzdialeny-vpn-pristup-do-siete-stu.html?page_id=3750).
+
+V celom návode je potrebné kľúčové slová **username** a **password** nahrádzať vlastným prihlasovacím menom (login) a heslom, ktoré ste obdržali mailom.
 
 ## Softvér a verzie
 - Ubuntu 20.04
@@ -13,7 +17,7 @@ Nastavenie LEMP webového servera pre predmet webte2 FEI STU. Pred samotnou inš
 
 Cez program putty (windows) alebo priamo cez terminál (OSx/Linux) sa pripojiť k svojmu pridelenému serveru.
 ```sh
-ssh username@147.175.YY.XX
+ssh username@147.175.98.XX
 ```
 Po prompte zadať heslo.
 
@@ -34,12 +38,14 @@ Inštalácia balíkov webserveru nginx, textového editora vim.
 ```sh
 sudo apt install nginx vim
 ```
+> Poznámka: Miesto editora vim môžete použiť aj iný editor, ako napríklad nano.
+
 Po navštívení IP adresy by webový prehliadač mal zobrazovať
 ![nginx](https://raw.githubusercontent.com/matej172/webte2-installation/main/img/nginx.png)
 
 Pridanie usera do skupiny www-data.
 ```sh
-sudo usermod -aG www-data username
+sudo usermod -aG www-data $USER
 ```
 Zmena sa prejaví až pri novej relácii, systém je možné rovno reštartovať.
 ```sh
@@ -117,6 +123,8 @@ Reťazec **XX** nahradiť prideleným číslom podľa URL
 ```sh
 sudo vim /etc/nginx/sites-available/siteXX.webte.fei.stuba.sk
 ```
+> Poznámka: Editor vim ukončíte príkazom `:wq` ak chcete uložiť zmeny alebo `:q!` ak zmeny ukladať nechcete.
+
 Do súboru vložiť obsah a zameniť režazec **XX** za posledný číselný segment priradenej IP adresy:
 
 ```sh
