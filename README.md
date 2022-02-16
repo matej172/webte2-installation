@@ -76,6 +76,7 @@ Odpovede na otázky počas konfigurácie:
 - heslo na ssh prihlásenie (pravdepodobne je to jedno aké heslo sa zadá)
 - remove anonymous user - yes
 - Disallow root login remotely? - yes
+- Remove test database and access to it? - yes
 - Reload privilege tables now? - yes
 
 Pirpojenie ku MySQL konzole.
