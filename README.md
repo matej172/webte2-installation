@@ -190,7 +190,7 @@ Skopírovať ich do:
 - /etc/ssl/certs/webte.fei.stuba.sk-chain-cert.pem;
 - /etc/ssl/private/webte.fei.stuba.sk.key;
 
-Zmeniť konfiguráciu Nginx v súbore ```/etc/sites-available/siteXX.webte.fei.stuba.sk```
+Zmeniť konfiguráciu Nginx v súbore ```/etc/nginx/sites-available/siteXX.webte.fei.stuba.sk```
 
 ```sh
 server {
